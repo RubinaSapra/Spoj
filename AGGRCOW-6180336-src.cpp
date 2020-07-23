@@ -1,12 +1,13 @@
 #include<iostream>
 #include<cstdio>
 #include<cstdlib>
+#include<bits/stdc++.h>
 using namespace std;
-
+ 
 int a[100000];
-
+ 
 int n,m;
-
+ 
 bool find(int v){
     int pre=a[0],c=0;
     for(int i=1;i<n;i++){
@@ -18,11 +19,9 @@ bool find(int v){
     if(c>=m) return true;
     return false;
 }
-
-int cmp(const void *x,const void *y){
-    return *(int *)x-*(int *)y;
-}
-
+ 
+ 
+ 
 int main(){
     int t;
     scanf("%d",&t);
@@ -30,7 +29,7 @@ int main(){
     {
     scanf("%d%d",&n,&m); m--;
     for(int i=0;i<n;i++) scanf("%d",&a[i]);
-    qsort(a,n,sizeof(a[0]),cmp);
+    sort(a, a+n );
     int left=0,right=a[n-1],mid;
     while(left<=right){
          mid=(left+right)/2;
@@ -40,4 +39,4 @@ int main(){
     printf("%d\n",left-1);
     }
     return 0;
-}
+} 
